@@ -1,0 +1,27 @@
+﻿
+
+<table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th>Imie i Nazwisko</th>
+        <th>Login</th>
+        <th>Numer tel.</th>
+        <th>Email</th>
+        <th>Rola</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of requestItems | async">
+          <td>{{user.name}} {{user.surname}}</td>
+          <td>{{user.login}}</td>
+          <td>{{user.numberPhone}}</td>
+          <td>{{user.addressEmail}}</td>
+          <td>{{user.role}}</td>
+          <td>
+            <button type="button" class="btn btn-success"><a [routerLink]="['/user-details', user.id]">Edytuj</a></button>&nbsp;
+            <button type="button" class="btn btn-danger" (click)="deleteUser(user.id)">Usuń</button>
+          </td>
+      </tr>
+    </tbody>
+  </table>

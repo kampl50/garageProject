@@ -1,0 +1,86 @@
+﻿<div class="row">
+<div class="col-md-3 offset-md-1 mt-3">
+  <div class="card">
+      <h4 class="card-header">Szczegóły samochodu</h4>
+      <div class="card-body">
+              <div class="form-group">
+                  <label for="mark">Marka samochodu</label>
+                  <input type="text" class="form-control" value="{{request.clientCar.mark}}" disabled="true"/>
+              </div>
+              <div class="form-group">
+                  <label for="model">Model samochodu</label>
+                  <input type="text" class="form-control" value="{{request.clientCar.model}}" disabled="true"/>
+              </div>
+              <div class="form-group">
+                  <label for="dateProduction">Data produkcji</label>
+                  <input type="date"  class="form-control" value="{{request.clientCar.dateProduction}}" disabled="true"/>
+              </div>
+              <div class="form-group">
+                  <label for="kindEngine">Rodzaj Silnika</label>
+                  <input type="text"  class="form-control" value="{{request.clientCar.kindEngine}}" disabled="true"/>
+              </div>
+              <div class="form-group">
+                  <label for="power">Moc silnika</label>
+                  <input type="text" class="form-control" value="{{request.clientCar.power}}" disabled="true"/>
+              </div>
+      </div>
+  </div>
+</div>
+<div class="col-md-3 offset-md-0 mt-3">
+    <div class="card">
+        <h4 class="card-header">Częśći</h4>
+        <div class="card-body" *ngFor="let item of request.partsToOrder">
+                <div class="form-group row">
+                    <label class="col-sm-6 col-form-label">Nazwa części</label>
+                    <input type="text" class="col-sm-6" value="{{item.name}}" disabled="true"/>
+                    <label class="col-sm-6 col-form-label">Cena</label>
+                    <input type="text" class="col-sm-6 form-control" value="{{item.price}}" disabled="true"/>
+                </div>
+        </div>
+    </div>
+  </div>
+<div class="col-md-3 offset-md-0 mt-3">
+  <div class="card">
+      <h4 class="card-header">Szczegóły zlecenia</h4>
+      <div class="card-body">
+              <div class="form-group">
+                  <label for="dateVisit">Planowana data wizyty</label>
+                  <input type="date" class="form-control" value="{{request.dateVisit}}" disabled="true"/>
+              </div>
+              <div class="form-group">
+                  <label for="kindNotification">Rodzaj wizyty</label>
+                  <select class="form-control" value="{{request.kindNotification}}" disabled="true">
+                    <option value="REPAIR">Naprawa</option>
+                    <option value="DIAGNOSTICS">Diagnostyka</option>
+                    <option value="EXCHANGE_PART">Modyfikacja</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                  <label for="problemDescription">Opis problemu</label>
+                  <input type="text"  class="form-control" value="{{request.problemDescription}}" disabled="true"/>
+              </div>
+              <div class="form-group">
+                <label for="statusNotification">Status zlecenia</label>
+                <select class="form-control" value="{{request.statusNotification}}" disabled="true">
+                  <option value="NEW">Nowe</option>
+                  <option value="VALUATED">Wycenione</option>
+                  <option value="IN_PROGRESS">W trakcie</option>
+                  <option value="PAYMENT">Do opłaty</option>
+                  <option value="ENDED">Zakończone</option>
+                </select>
+                
+            </div>
+
+
+              <button *ngIf="role=='USER' && !linkToPay" (click)="pay()" [disabled]="request.statusNotification!=='PAYMENT'" class="btn btn-success">
+                  Zapłać
+              </button>
+              Kwota: {{request.price}}
+              <br>
+              <button *ngIf="linkToPay" class="btn btn-success">
+                <a href="{{linkToPay}}" target="_blank">Przekieruj i zapłać</a>
+            </button>
+      </div>
+  </div>
+</div>
+</div>

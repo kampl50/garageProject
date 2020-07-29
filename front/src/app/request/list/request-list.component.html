@@ -1,0 +1,33 @@
+﻿
+
+<table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Marka</th>
+        <th scope="col">Model</th>
+        <th scope="col">Data wizyty</th>
+        <th scope="col">Status</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of requestItems | async">
+          <td>{{item.clientCar.mark}}</td>
+          <td>{{item.clientCar.model}}</td>
+          <td>{{item.dateVisit}}</td>
+          <td>{{item.statusNotification == 'NEW'? 'W trakcie wyceny' : 
+                  item.statusNotification == 'VALUATED'? 'Wycenione' :  
+                  item.statusNotification == 'IN_PROGRESS'? 'W trakcie realizacji ':
+                  item.statusNotification == 'PAYMENT'? 'Do opłaty': 'Do odbioru'}}</td>
+          <td>
+            <button type="button" class="btn btn-primary" ><a [routerLink]="['/request-list/details', item.id]">Szczegóły</a></button>&nbsp;
+            <button *ngIf="role == 'ADMIN'" type="button" class="btn btn-danger" ><a [routerLink]="['/request', item.id]">Edytuj</a></button>&nbsp;
+            <button *ngIf="role == 'WORKER' && !id" type="button" class="btn btn-success" (click)="attachToMe(item.id)">Przejmij</button>&nbsp;
+            <button *ngIf="role == 'USER' && item.statusNotification == 'VALUATED'" type="button" class="btn btn-success" (click)="accept(item.id, true)">AKCEPTUJ</button>&nbsp;
+            <button *ngIf="role == 'USER' && item.statusNotification == 'VALUATED'" type="button" class="btn btn-danger" (click)="accept(item.id ,false)">ODRZUĆ</button>&nbsp;
+            <button *ngIf="role != 'USER' && (item.statusNotification == 'IN_PROGRESS' || item.statusNotification == 'PAYMENT')" type="button" class="btn btn-danger" (click)="changeStatus(item)">{{item.statusNotification == 'IN_PROGRESS'? 'Zakończ' : 'Anuluj płatność'}}</button>&nbsp;
+            <button *ngIf="role == 'WORKER' && id && item.statusNotification == 'NEW'" type="button" class="btn btn-success" ><a [routerLink]="['/valuate', item.id]">Wyceń</a></button>
+          </td>
+      </tr>
+    </tbody>
+  </table>

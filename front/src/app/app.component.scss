@@ -1,0 +1,21 @@
+
+.flex-menu {
+    position:sticky;
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgba($color: #000, $alpha: 1);
+    padding: 0 30px;
+    a{
+        text-decoration: none;
+        color:#fff;
+        width: 100px;
+        margin: 10px;
+        text-align: center;
+        line-height: 75px;
+        font-size: 22px;
+    }
+    a:hover{
+        color:red;
+    }
+
+  }

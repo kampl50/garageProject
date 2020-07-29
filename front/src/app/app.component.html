@@ -1,0 +1,153 @@
+﻿
+<div style="height: 120px;"></div>
+
+<div class="containerr">
+    <router-outlet></router-outlet>
+</div>
+
+
+<div class="header">
+    <div class="header__top">
+        <div class="wrapper header__wrapper">
+            <a href="/podstrony/Kontakt.html" class="logo header__logo">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="1111.09px" height="289.328px" alt="AutoSerwis" viewBox="0 0 1111.09 289.328" enable-background="new 0 0 1111.09 289.328" xml:space="preserve" class="svg-inject  replaced-svg" data-url="/theme/images/logo.svg">
+
+</svg>
+            </a>
+
+            <nav class="mainmenu">
+                <div class="mainmenu__wrapper">
+                    <a class="menubutton" href="'./podstrony/Kontakt.html'"></a>
+
+                    <div class="mainmenu__inner">
+                        <div class="mainmenu__menu">
+                            
+
+
+<nav class="menu menu--main menu--hoverable menu--full menu--inited" data-mobile="1050">
+    <ul class="menu__list menu__list--i0 menu__list--focused">
+        <div *ngIf="currentUser && role=='USER'">
+            <li class="menu__item menu__item--linked menu__item--i0 menu__item--empty">
+                <a routerLink="/" class="menu__head menu__head--i0">
+                    <span class="menu__title menu__title--i0">Strona główna</span>
+                </a>
+            </li>
+            <li class="menu__item menu__item--linked menu__item--i0 menu__item--empty">
+                <a routerLink="/request" class="menu__head menu__head--i0">
+                    <span class="menu__title menu__title--i0">Złóż zlecenie</span>
+                </a>
+            </li>
+            <li class="menu__item menu__item--linked menu__item--i0 menu__item--empty">
+                <a routerLink="/request-list" class="menu__head menu__head--i0">
+                    <span class="menu__title menu__title--i0">Lista zleceń</span>
+                </a>
+            </li>
+            <li class="menu__item menu__item--linked menu__item--i0 menu__item--empty">
+                <a routerLink="/contact" class="menu__head menu__head--i0">
+                    <span class="menu__title menu__title--i0">Kontakt</span>
+                </a>
+            </li>
+            <li class="menu__item menu__item--linked menu__item--i0 menu__item--empty">
+                <a (click)="logout()" class="menu__head menu__head--i0">
+                    <span class="menu__title menu__title--i0">Wyloguj</span>
+                </a>
+            </li>
+        </div>
+        <div *ngIf="currentUser && role=='ADMIN'">
+            <li class="menu__item menu__item--linked menu__item--i0 menu__item--empty">
+                <a routerLink="/" class="menu__head menu__head--i0">
+                    <span class="menu__title menu__title--i0">Strona główna</span>
+                </a>
+            </li>
+            <li class="menu__item menu__item--linked menu__item--i0 menu__item--empty">
+                <a routerLink="/user-details" class="menu__head menu__head--i0">
+                    <span class="menu__title menu__title--i0">Dodaj użytkownika</span>
+                </a>
+            </li>
+            <li class="menu__item menu__item--linked menu__item--i0 menu__item--empty">
+                <a routerLink="/user-list" class="menu__head menu__head--i0">
+                    <span class="menu__title menu__title--i0">Lista użytkowników</span>
+                </a>
+            </li>
+            <li class="menu__item menu__item--linked menu__item--i0 menu__item--empty">
+                <a routerLink="/request-list" class="menu__head menu__head--i0">
+                    <span class="menu__title menu__title--i0">Lista zleceń</span>
+                </a>
+            </li>
+            <li class="menu__item menu__item--linked menu__item--i0 menu__item--empty">
+                <a (click)="logout()" class="menu__head menu__head--i0">
+                    <span class="menu__title menu__title--i0">Wyloguj</span>
+                </a>
+            </li>
+        </div>
+        <div *ngIf="currentUser && role=='WORKER'">
+            <li class="menu__item menu__item--linked menu__item--i0 menu__item--empty">
+                <a routerLink="/" class="menu__head menu__head--i0">
+                    <span class="menu__title menu__title--i0">Strona główna</span>
+                </a>
+            </li>
+            <li class="menu__item menu__item--linked menu__item--i0 menu__item--empty">
+                <a [routerLink]="['/preferences']"class="menu__head menu__head--i0">
+                    <span class="menu__title menu__title--i0">Moje preferencje</span>
+                </a>
+            </li>
+            <li class="menu__item menu__item--linked menu__item--i0 menu__item--empty">
+                <a [routerLink]="['/request-list', id]" class="menu__head menu__head--i0">
+                    <span class="menu__title menu__title--i0">Moje zlecenia</span>
+                </a>
+            </li>
+            <li class="menu__item menu__item--linked menu__item--i0 menu__item--empty">
+                <a routerLink="/request-list" class="menu__head menu__head--i0">
+                    <span class="menu__title menu__title--i0">Lista zleceń</span>
+                </a>
+            </li>
+            <li class="menu__item menu__item--linked menu__item--i0 menu__item--empty">
+                <a (click)="logout()" class="menu__head menu__head--i0">
+                    <span class="menu__title menu__title--i0">Wyloguj</span>
+                </a>
+            </li>
+        </div>
+        <div *ngIf="!currentUser">
+            <li class="menu__item menu__item--linked menu__item--i0 menu__item--empty">
+                <a routerLink="/" class="menu__head menu__head--i0">
+                    <span class="menu__title menu__title--i0">Strona główna</span>
+                </a>
+            </li>
+            <li class="menu__item menu__item--linked menu__item--i0 menu__item--empty">
+                <a routerLink="/login" class="menu__head menu__head--i0">
+                    <span class="menu__title menu__title--i0">Zaloguj</span>
+                </a>
+            </li>
+            <li class="menu__item menu__item--linked menu__item--i0 menu__item--empty">
+                <a routerLink="/register" class="menu__head menu__head--i0">
+                    <span class="menu__title menu__title--i0">Zarejestruj się</span>
+                </a>
+            </li>
+            <li class="menu__item menu__item--linked menu__item--i0 menu__item--empty">
+                <a routerLink="/contact" class="menu__head menu__head--i0">
+                    <span class="menu__title menu__title--i0">Kontakt</span>
+                </a>
+            </li>
+        </div>
+
+
+</ul>
+
+</nav>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="header__info">
+                <div class="header__text">
+                    <div class="cmstext header__phone title--bold"><p><span style="font-size: 24px;">Tel. 123 123 123</span></p></div>
+                    <div class="cmstext header__hours title--medium"><p><span style="font-size: 18px;">Pn - Pt: 8<sup>00</sup> do 16<sup>00</sup></span></p></div>
+                </div>
+                <div class="header__info-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 25 25" enable-background="new 0 0 25 25" xml:space="preserve" class="svg-inject  replaced-svg" data-url="/theme/images/icon-phone.svg">
+<path xmlns="http://www.w3.org/2000/svg" d="M24.988,19.729c0.053,0.406-0.07,0.76-0.37,1.061l-3.521,3.495c-0.158,0.177-0.366,0.326-0.622,0.45  c-0.256,0.123-0.507,0.203-0.754,0.238c-0.018,0-0.07,0.005-0.158,0.014C19.474,24.996,19.36,25,19.218,25  c-0.335,0-0.878-0.058-1.628-0.172s-1.667-0.397-2.752-0.848s-2.315-1.126-3.691-2.026c-1.377-0.899-2.841-2.136-4.394-3.707  c-1.235-1.218-2.259-2.383-3.07-3.496c-0.812-1.111-1.464-2.141-1.958-3.085S0.86,9.865,0.614,9.098  C0.366,8.329,0.199,7.667,0.11,7.111C0.022,6.555-0.013,6.118,0.004,5.8s0.026-0.495,0.026-0.53  c0.035-0.247,0.115-0.499,0.238-0.754c0.124-0.256,0.273-0.463,0.45-0.622l3.52-3.523C4.486,0.124,4.768,0,5.085,0  c0.229,0,0.433,0.066,0.609,0.199c0.177,0.133,0.326,0.295,0.449,0.49l2.832,5.376c0.159,0.282,0.203,0.592,0.132,0.927  c-0.07,0.335-0.22,0.617-0.449,0.847L7.362,9.137C7.327,9.172,7.295,9.229,7.269,9.309S7.23,9.455,7.23,9.508  c0.07,0.371,0.229,0.794,0.476,1.271c0.212,0.424,0.538,0.94,0.979,1.55s1.067,1.312,1.879,2.105c0.794,0.813,1.5,1.443,2.118,1.894  c0.617,0.45,1.133,0.781,1.548,0.993c0.414,0.212,0.732,0.34,0.952,0.384l0.331,0.066c0.035,0,0.093-0.014,0.172-0.039  c0.079-0.027,0.137-0.059,0.172-0.094l1.509-1.536c0.318-0.282,0.688-0.423,1.111-0.423c0.301,0,0.538,0.053,0.715,0.158h0.026  l5.108,3.02C24.697,19.086,24.917,19.377,24.988,19.729z"></path>
+</svg></div>
+            </div>
+        </div>
+    </div>
+</div>

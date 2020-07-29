@@ -1,0 +1,48 @@
+<div class="col-md-6 offset-md-3 mt-5">
+    <div class="card">
+        <h4 class="card-header">Wycena zlecenia</h4>
+        <div class="card-body">
+            <form [formGroup]="partsForm" (ngSubmit)="onSubmit()">
+                <div class="form-group mb-2">
+                    <label for="name">Nazwa części</label>
+                    <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                        <div *ngIf="f.name.errors.required">Pole jest wymagane</div>
+                    </div>
+                    <label for="price">cena</label>
+                    <input type="number" formControlName="price" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.price.errors }" />
+                    <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+                        <div *ngIf="f.price.errors.required">Pole jest wymagane</div>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group mb-2">
+                    <label for="name2">Nazwa części</label>
+                    <input type="text" formControlName="name2" class="form-control"/>
+                    <label for="price2">cena</label>
+                    <input type="number" formControlName="price2" class="form-control" />
+                </div>
+                <hr>
+                <div class="form-group mb-2">
+                    <label for="name3">Nazwa części</label>
+                    <input type="text" formControlName="name3" class="form-control"  />
+                    <label for="price3">cena</label>
+                    <input type="number" formControlName="price3" class="form-control"  />
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label for="service">Cena za Usługę</label>
+                    <input type="text" formControlName="service" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.service.errors }" />
+                    <div *ngIf="submitted && f.service.errors" class="invalid-feedback">
+                        <div *ngIf="f.service.errors.required">Pole jest wymagane</div>
+                    </div>
+                </div>
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Zatwierdź
+                </button>
+                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,135 @@
+﻿<div class="col-md-6 offset-md-3 mt-5">
+    <div class="card">
+        <h4 class="card-header">{{this.id?'Edycja zlecenia':'Złóż zlecenie'}}</h4>
+        <div class="card-body">
+            <form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="mark">Marka samochodu</label>
+                    <select class="form-control" formControlName="mark" [ngClass]="{ 'is-invalid': submitted && f.mark.errors }">
+                        <option value="AUDI">AUDI</option>
+                        <option value="BMW">BMW</option>
+                        <option value="FORD">FORD</option>
+                        <option value="VOLKSWAGEN">VOLKSWAGEN</option>
+                        <option value="KIA">KIA</option>
+                        <option value="PEUGEOT">PEUGEOT</option>
+                        <option value="OPEL">OPEL</option>
+                        <option value="MERCEDES">MERCEDES</option>
+                        <option value="PORSCHE">PORSCHE</option>
+                        <option value="ALFA_ROMEO">ALFA ROMEO</option>
+                        <option value="VOLVO">VOLVO</option>
+                        <option value="ALFA_ROMEO">ALFA ROMEO</option>
+                        <option value="HONDA">HONDA</option>
+                        <option value="HYUNDAI">HYUNDAI</option>
+                        <option value="TOYOTA">TOYOTA</option>
+                        <option value="CHEVROLET">CHEVROLET</option>
+                        <option value="RENAULT">RENAULT</option>
+                        <option value="LAND_ROVER">LAND ROVER</option>
+                      </select>
+                    <div *ngIf="submitted && f.mark.errors" class="invalid-feedback">
+                        <div *ngIf="f.mark.errors.required">Pole jest wymagane</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="model">Model samochodu</label>
+                    <input type="text" formControlName="model" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.model.errors }" />
+                    <div *ngIf="submitted && f.model.errors" class="invalid-feedback">
+                        <div *ngIf="f.model.errors.required">Pole jest wymagane</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="dateProduction">Data produkcji</label>
+                    <input type="date" formControlName="dateProduction" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dateProduction.errors }" />
+                    <div *ngIf="submitted && f.dateProduction.errors" class="invalid-feedback">
+                        <div *ngIf="f.dateProduction.errors.required">Pole jest wymagane</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="kindEngine">Rodzaj Silnika</label>
+                    <select class="form-control" formControlName="kindEngine" [ngClass]="{ 'is-invalid': submitted && f.kindEngine.errors }">
+                        <option value="DIESEL">DIESEL</option>
+                        <option value="PETROL">BENZYNA</option>
+                      </select>
+                    <div *ngIf="submitted && f.kindEngine.errors" class="invalid-feedback">
+                        <div *ngIf="f.kindEngine.errors.required">Pole jest wymagane</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="power">Moc silnika</label>
+                    <input type="text" formControlName="power" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.power.errors }" />
+                    <div *ngIf="submitted && f.power.errors" class="invalid-feedback">
+                        <div *ngIf="f.power.errors.required">Pole jest wymagane</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="dateVisit">Planowana data wizyty</label>
+                    <input type="date" formControlName="dateVisit" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dateVisit.errors }" />
+                    <div *ngIf="submitted && f.dateVisit.errors" class="invalid-feedback">
+                        <div *ngIf="f.dateVisit.errors.required">Pole jest wymagane</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="kindNotification">Rodzaj wizyty</label>
+                    <select class="form-control" formControlName="kindNotification" [ngClass]="{ 'is-invalid': submitted && f.kindNotification.errors }">
+                        <option value="REPAIR">Naprawa</option>
+                        <option value="DIAGNOSTICS">Diagnostyka</option>
+                        <option value="EXCHANGE_PART">Modyfikacja</option>
+                      </select>
+                    <div *ngIf="submitted && f.kindNotification.errors" class="invalid-feedback">
+                        <div *ngIf="f.kindNotification.errors.required">Pole jest wymagane</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="problemDescription">Opis problemu</label>
+                    <input type="text" formControlName="problemDescription" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.problemDescription.errors }" />
+                    <div *ngIf="submitted && f.problemDescription.errors" class="invalid-feedback">
+                        <div *ngIf="f.problemDescription.errors.required">Pole jest wymagane</div>
+                    </div>
+                </div>
+                <div *ngIf="id" class="form-group">
+                    <label for="statusNotification">Status</label>
+                    <select class="form-control" formControlName="statusNotification" [ngClass]="{ 'is-invalid': submitted && f.statusNotification.errors }">
+                        <option value="NEW">Nowe</option>
+                        <option value="VALUATED">Wycenione</option>
+                        <option value="IN_PROGRESS">W trakcie</option>
+                        <option value="PAYMENT">Do opłaty</option>
+                        <option value="READY">Zakończone</option>
+                      </select>
+
+                    <div *ngIf="submitted && f.statusNotification.errors" class="invalid-feedback">
+                        <div *ngIf="f.statusNotification.errors.required">Pole jest wymagane</div>
+                    </div>
+                </div>
+                <div *ngIf="id" class="form-group">
+                    <label for="workerId">Przydzielony pracownik</label>
+                    <input type="text" formControlName="workerId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.workerId.errors }"/>
+                    
+                    <div *ngIf="submitted && f.workerId.errors" class="invalid-feedback">
+                        <div *ngIf="f.workerId.errors.required">Pole jest wymagane</div>
+                    </div>
+                </div>
+                <div *ngIf="id" class="form-group">
+                    <label for="clientId">Klient</label>
+                    <input type="text" formControlName="clientId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.clientId.errors }"/>
+                    
+                    <div *ngIf="submitted && f.clientId.errors" class="invalid-feedback">
+                        <div *ngIf="f.clientId.errors.required">Pole jest wymagane</div>
+                    </div>
+                </div>
+                <div *ngIf="id" class="form-group">
+                    <label for="price">Cena</label>
+                    <input type="text" formControlName="price" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.price.errors }"/>
+                    <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+                        <div *ngIf="f.price.errors.required">Pole jest wymagane</div>
+                    </div>
+                </div>
+
+
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    {{ id ? "Edytuj" : "Złóż" }}
+                </button>&nbsp;
+                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+            </form>
+        </div>
+    </div>
+</div>
